@@ -7,19 +7,12 @@ jobs:
     steps:
       - checkout
       - run: npm install
-
-#machine:
-##  node:
-##    version: 8.9.4
-#  services:
-#    - docker
-#
-#dependencies:
-##  pre:
-##    - npm install
-#  override:
-#    - docker info
-#    - docker build --rm=false -t storager/pluralsight-docker-ci:test .
+  prepare:
+    docker:
+      - image: circleci/docker
+    steps:
+      - docker info
+      - docker build --rm=false -t storager/pluralsight-docker-ci:test .
 #test:
 #  override:
 #     - docker run -d -p 8080:8080 storager/pluralsight-docker-ci:test; sleep 10
