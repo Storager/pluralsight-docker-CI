@@ -14,8 +14,8 @@ jobs:
       - checkout
       - run: docker info
       - run: docker build --rm=false -t storager/pluralsight-docker-ci:test .
-      - docker login -u $DOCKER_USER -p $DOCKER_PASS
-      - docker push storager/pluralsight-docker-ci:test
+      - run: docker login -u $DOCKER_USER -p $DOCKER_PASS
+      - run: docker push storager/pluralsight-docker-ci:test
 #test:
 #  override:
 #     - docker run -d -p 8080:8080 storager/pluralsight-docker-ci:test; sleep 10
