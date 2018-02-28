@@ -1,0 +1,32 @@
+version: 2
+
+jobs:
+  build:
+    docker:
+      - image: circleci/node:8.9.4
+    steps:
+      - checkout
+      - run: npm install
+
+#machine:
+##  node:
+##    version: 8.9.4
+#  services:
+#    - docker
+#
+#dependencies:
+##  pre:
+##    - npm install
+#  override:
+#    - docker info
+#    - docker build --rm=false -t storager/pluralsight-docker-ci:test .
+#test:
+#  override:
+#     - docker run -d -p 8080:8080 storager/pluralsight-docker-ci:test; sleep 10
+#     - curl --retry 10 --retry-delay 5 -v http://localhost:8080
+#deployment:
+#  dockerhub:
+#    branch: master
+#    commands:
+#      - docker login -u $DOCKER_USER -p $DOCKER_PASS
+#      - docker push storager/pluralsight-docker-ci:test
