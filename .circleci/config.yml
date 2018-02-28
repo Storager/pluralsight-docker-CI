@@ -7,7 +7,7 @@ jobs:
     steps:
       - checkout
       - run: npm install
-  prepare:
+  build:
     docker:
       - image: docker
     steps:
