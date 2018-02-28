@@ -7,9 +7,6 @@
 #   commands:
 #     - $DOCKER_HUB_TRIGGER
 #
-#test:
-#  override:
-#    - mocha
 
 machine:
   services:
@@ -19,3 +16,7 @@ dependencies:
   override:
     - docker info
     - docker build --rm=false -t storager/pluralsight-docker-ci .
+
+test:
+  override:
+    - mocha
