@@ -9,14 +9,16 @@
 #
 
 machine:
+  node:
+    version: 8.9.4
   services:
     - docker
 
 dependencies:
+  pre:
+    - npm install
+test:
   override:
     - docker info
     - docker build --rm=false -t storager/pluralsight-docker-ci .
 
-test:
-  override:
-    - mocha
