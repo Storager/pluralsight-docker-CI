@@ -20,5 +20,11 @@ dependencies:
 test:
   override:
     - docker info
-    - docker build --rm=false -t storager/pluralsight-docker-ci .
+    - docker build --rm=false -t storager/pluralsight-docker-ci:test .
 
+deployment:
+  hub:
+    branch: master
+    commands:
+      - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+      - docker push storager/pluralsight-docker-ci:test
