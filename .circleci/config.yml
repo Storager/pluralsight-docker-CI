@@ -23,11 +23,11 @@ jobs:
 #    commands:
 #      - docker login -u $DOCKER_USER -p $DOCKER_PASS
 #      - docker push storager/pluralsight-docker-ci:test
-workflows:
-  version: 2
-  build_and_deploy:
-    jobs:
-      - build
-      - prepare
-          requires:
-            - build
+#workflows:
+#  version: 2
+#  build_and_deploy:
+#    jobs:
+#      - build
+#      - prepare
+#          requires:
+#            - build
