@@ -1,13 +1,12 @@
 # The deployment section should be excluded until
 # it is explicitly included in module 5
 
-#deployment:
-# dockerhub:
-#   branch: master
-#   commands:
-#     - $DOCKER_HUB_TRIGGER
-#
-
+deployment:
+  dockerhub:
+    branch: master
+    commands:
+      - docker login -u $DOCKER_USER -p $DOCKER_PASS
+      - docker push storager/pluralsight-docker-ci:test
 machine:
   node:
     version: 8.9.4
@@ -25,9 +24,3 @@ test:
      - docker run -d -p 8080:8080 storager/pluralsight-docker-ci:test; sleep 10
      - curl --retry 10 --retry-delay 5 -v http://localhost:8080
 
-deployment:
-  hub:
-    branch: master
-    commands:
-      - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
-      - docker push storager/pluralsight-docker-ci:test
