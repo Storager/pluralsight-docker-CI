@@ -9,7 +9,7 @@ jobs:
       - run: npm install
   build:
     docker:
-      - image: docker
+      - image: circleci/docker
     steps:
       - run: docker info
       - run: docker build --rm=false -t storager/pluralsight-docker-ci:test .
