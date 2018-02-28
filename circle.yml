@@ -21,7 +21,6 @@ test:
   override:
     - docker info
     - docker build --rm=false -t storager/pluralsight-docker-ci:test .
-
 deployment:
   hub:
     branch: master
