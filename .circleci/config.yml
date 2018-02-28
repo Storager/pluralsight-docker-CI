@@ -11,6 +11,7 @@ jobs:
     machine: true
 #      - image: docker
     steps:
+      - checkout
       - run: docker info
       - run: docker build --rm=false -t storager/pluralsight-docker-ci:test .
 #test:
