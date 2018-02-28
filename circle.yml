@@ -1,12 +1,21 @@
 # The deployment section should be excluded until
 # it is explicitly included in module 5
 
-deployment:
- dockerhub:
-   branch: master
-   commands:
-     - $DOCKER_HUB_TRIGGER
+#deployment:
+# dockerhub:
+#   branch: master
+#   commands:
+#     - $DOCKER_HUB_TRIGGER
+#
+#test:
+#  override:
+#    - mocha
 
-test:
-  override:    
-    - mocha
+machine:
+  services:
+    - docker
+
+dependencies:
+  override:
+    - docker info
+    - docker build --rm=false -t storager/pluralsight-docker-ci .
