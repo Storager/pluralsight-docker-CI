@@ -8,7 +8,7 @@ jobs:
       - checkout
       - run: npm install
   build:
-    machine:
+    machine: true
 #      - image: docker
     steps:
       - run: docker info
